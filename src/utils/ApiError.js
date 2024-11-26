@@ -20,7 +20,7 @@ class ApiError extends Error {
   }
 }
 
-class ValidationError extends CustomError {
+class ValidationError extends ApiError {
   constructor(errors) {
     super(400, "Validation Error");
     this.errors = errors;
