@@ -22,8 +22,7 @@ class ApiError extends Error {
 
 class ValidationError extends ApiError {
   constructor(errors) {
-    super(400, "Validation Error");
-    this.errors = errors;
+    super(400, "Validation Error", errors);
   }
 }
 
