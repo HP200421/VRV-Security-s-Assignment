@@ -25,7 +25,7 @@ const generateAccessAndRefreshToken = async (userId) => {
 };
 
 export const registerUser = asyncHandler(async (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, email, password, role } = req.body;
 
   if ([username, email, password].some((field) => field?.trim() === "")) {
     throw new ApiError(400, "All fields are required");
@@ -43,6 +43,7 @@ export const registerUser = asyncHandler(async (req, res) => {
     username,
     email,
     password,
+    role,
   });
 
   const createdUser = await User.findById(user._id).select(
@@ -172,4 +173,9 @@ export const getNewToken = asyncHandler(async (req, res) => {
   } catch (error) {
     throw new ApiError(401, error?.message || "Invalid refresh token");
   }
+});
+
+export const checkSession = asyncHandler(async (req, res) => {
+  const name = req.user?.username;
+  return res.status(200).json(new ApiResponse(200, { name }));
 });

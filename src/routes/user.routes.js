@@ -4,6 +4,7 @@ import {
   loginUser,
   logoutUser,
   getNewToken,
+  checkSession,
 } from "../controllers/user.controller.js";
 import { validateRegister, validateLogin } from "../utils/validators/auth.js";
 import { handleValidationErrors } from "../utils/validators/handleValidation.js";
@@ -20,5 +21,6 @@ router.route("/login").post(validateLogin, handleValidationErrors, loginUser);
 // Secured routes
 router.route("/logout").post(verifyJwt, logoutUser);
 router.route("/refresh-token").get(getNewToken);
+router.route("/checkSession").post(verifyJwt, checkSession);
 
 export default router;

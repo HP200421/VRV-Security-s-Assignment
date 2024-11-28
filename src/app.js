@@ -21,8 +21,10 @@ app.use(express.static("public"));
 app.use(cookieParser());
 // We will import the routes here
 import userRouter from "./routes/user.routes.js";
+import accessRouter from "./routes/access.routes.js";
 
 app.use("/api/v1/auth", userRouter);
+app.use("/api/v1/access", accessRouter);
 
 // error handling middleware at the last
 app.use(errorHandler);

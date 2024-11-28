@@ -1,22 +1,25 @@
-import { check, body } from "express-validator";
-
-// export const validateRegister = [
-//   body("username", "Username is required").not().isEmpty(),
-//   body("email", "Please include a valid email"),
-//   body("password", "Password must be 8 or more characters").isLength({
-//     min: 8,
-//   }),
-// ];
+import { check } from "express-validator";
 
 export const validateRegister = [
   check("email").isEmail().withMessage("Invalid email address"),
   check("password")
     .isLength({ min: 8 })
     .withMessage("Password must be at least 8 characters long"),
-  check("username").notEmpty().withMessage("Name is required"),
+  check("username").notEmpty().withMessage("User name is required"),
 ];
 
 export const validateLogin = [
-  body("email", "Please include a valid email").isEmail(),
-  body("password", "Password is required"),
+  check("email").isEmail().withMessage("Invalid email address"),
+  check("password")
+    .notEmpty()
+    .withMessage("Password is required")
+    .isLength({ min: 8 })
+    .withMessage("Password must be at least 8 characters long"),
+];
+
+export const validateUpdateUserRole = [
+  check("userId").isMongoId().withMessage("Invalid user id"),
+  check("role")
+    .isIn(["admin", "user", "moderator"])
+    .withMessage("Invalid role"),
 ];
