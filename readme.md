@@ -13,6 +13,7 @@ This project is a robust **Role-Based Access Control (RBAC) system** built with 
 
 ## Project Structure
 
+```
 /src
 ├── controllers/ # Contains API logic for authentication and user management
 ├── middlewares/ # Middleware for authentication, authorization, and validation
@@ -20,6 +21,7 @@ This project is a robust **Role-Based Access Control (RBAC) system** built with 
 ├── routes/ # API route definitions
 ├── utils/ # Utility functions (error handling, input sanitization, etc.)
 └── server.js # Main server entry point
+```
 
 ## Technologies Used
 
