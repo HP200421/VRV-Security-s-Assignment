@@ -43,16 +43,18 @@ Ensure you have the following installed:
 ### Installation
 
 1. Clone the repository:
-
+```
    git clone https://github.com/HP200421/VRV-Security-s-Assignment
    cd VRV-Security-s-Assignment
+```
 
 2. Install dependencies:
 
+```
    npm install
-
+```
 3. Create a .env file and add the following environment variables:
-
+```
    PORT=5000
    MONGODB_URI # Your mongodb uri
    CORS_ORIGIN # Allowed origin for CORS requests  
@@ -60,15 +62,15 @@ Ensure you have the following installed:
    ACCESS_TOKEN_EXPIRY # Expiry duration for Access Tokens  
    REFRESH_TOKEN_SECRET # Secret key for signing Refresh Tokens  
    REFRESH_TOKEN_EXPIRY # Expiry duration for Refresh Tokens
-
+```
 4. Start the server:
-
+```
    npm run dev
-
+```
 5. Start the server:
-
+```
    http://localhost:8000
-
+```
 ## Usage
 
 - **Admins** can manage user roles (assign Admin, Moderator, or User roles).
